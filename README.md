@@ -1,4 +1,2 @@
-# 2020Freshman
-2020级任务提交仓库
-
-#### 点击右上角==Add file==可以上传代码，第一次上传时请选择==Create a new branch==然后以姓名-班级命名，后续直接上传到自己的分支
+# 我的博客
+[博客](https://www.luogu.com.cn/blog/yukisama/)
