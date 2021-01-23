@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/SDL2_01.dir/main.c.o  -o SDL2_01  -lSDL2 
