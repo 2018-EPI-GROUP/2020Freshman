@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/SDL2_ShowImage.dir/main.c.o  -o SDL2_ShowImage  -lSDL2 -lSDL2_image 
