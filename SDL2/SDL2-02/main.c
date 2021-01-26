@@ -8,7 +8,7 @@
 void event_loop() {
     while(1){
         SDL_Event event;
-        if (SDL_PollEvent(&event)) {//Have Event
+        while(SDL_PollEvent(&event)) {//Have Event
             switch (event.type) {
                 case SDL_QUIT://Closing Window
                     return;
@@ -30,6 +30,12 @@ int main() {
     SDL_Surface *screen=SDL_GetWindowSurface(win);
     SDL_Rect r={0,0,WIDTH,HEIGHT};
     SDL_FillRect(screen,&r,0xffffffff);
+    uint32_t *p=(uint32_t *)screen->pixels;
+    for(int i=0;i<100;i++){
+        for(int j=0;j<100;j++){
+            p[i*screen->w+j]=0xff0000ff;//ARGB Blue 100%
+        }
+    }
     SDL_UpdateWindowSurface(win);
     //Show Window EventLoop
     SDL_ShowWindow(win);
