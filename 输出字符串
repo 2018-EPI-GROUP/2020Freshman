@@ -1,0 +1,93 @@
+/*实验11-1-6 指定位置输出字符串 */
+#include <stdio.h>
+
+#define MAXS 10
+
+char *match( char *s, char ch1, char ch2 );
+
+int main()
+{
+    char str[MAXS], ch_start, ch_end, *p;
+
+    scanf("%s\n", str);
+    scanf("%c %c", &ch_start, &ch_end);
+    p = match(str, ch_start, ch_end);
+    printf("%s\n", p);
+
+    return 0;
+}
+
+/* 
+char *match( char *s, char ch1, char ch2 )
+{
+int a=0,b=0,flag1=0,flag2=0,i;
+for(i=0;s[i]!='\0';i++)
+{
+if(s[i]==ch1)
+{
+a=i;
+flag1=1;
+break;
+}
+}
+for(i=0;s[i]!='\0';i++)
+{
+if(s[i]==ch2)
+{
+b=i;
+flag2=1;
+break;
+}
+}
+if(flag1==1&&flag2==1)
+{
+for(i=a;i<=b;i++)
+{
+printf("%c",s[i]);
+}
+printf("\n");
+}
+else if(flag1==1&&flag2==0)
+{
+for(i=a;i<strlen(s);i++)
+{
+printf("%c",s[i]);
+}
+printf("\n");
+}
+else if(flag1==0&&flag2==1||flag1==0&&flag2==0)
+{
+printf("\n");
+
+return (s+strlen(s));//测试点二
+}
+return (s+a);
+} */
+char *match( char *s, char ch1, char ch2 )
+{   
+    int i,c=0,k=0,j;
+    for(i=0;*(s+i)!=0;i++)
+    {
+        if(*(s+i)==ch1)
+    {
+        k=i;
+            break;
+    }
+    }
+    for(j=k;*(s+j)!=0;j++)
+    {
+        if(*(s+j)==ch2)
+        {
+            c=j;
+            break;
+        }
+    }
+    if(k==0)
+    {  return 1;
+        
+    }
+    if(j==0)
+       return (s+k);
+    if(k!=0&&j!=0)
+        return 0;
+}
