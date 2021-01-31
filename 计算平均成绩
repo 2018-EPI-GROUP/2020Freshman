@@ -1,0 +1,35 @@
+给定N个学生的基本信息，包括学号（由5个数字组成的字符串）、姓名（长度小于10的不包含空白字符的非空字符串）和成绩（[0,100]区间内的整数），要求计算他们的平均成绩，并顺序输出平均线以下的学生名单。
+
+
+
+
+
+#include<stdio.h>
+struct stu 
+{
+    char num[6];
+    char name[11];
+    int a;
+};
+int main()
+{
+    int n,i,j;
+    float aver=0.0;
+    scanf("%d",&n);
+    struct stu b[n];
+    for(i=0;i<n;i++)
+    {
+      scanf("%s %s %d",b[i].num,b[i].name,&b[i].a);
+        aver=aver+b[i].a;
+    }
+    aver=aver/n;
+    printf("%.2f\n",aver);
+    for(i=0;i<n;i++)
+    {
+        if(b[i].a<aver)
+        {
+            printf("%s %s\n",b[i].name,b[i].num);
+        }
+     }
+    return 0;
+}
