@@ -167,3 +167,38 @@ int main()
 	return 0;
 }
 ```
+**引用做函数参数**
+作用：函数参数时，可以利用引用的技术让形参修饰实参。
+优点：可以简化指针修饰实参。
+```
+void myswap(int &a,int &b)
+(
+int temp = a;
+a = b;
+b = temp;
+}
+int main()
+{
+myswap(a,b);
+}
+```
+引用的辅助操作
+```
+#include<iostream>
+using namespace std;
+int& test1()
+{
+	static int a = 10;//改局部变量为静态变量，存储在全局区
+	return a;
+}
+int main()
+{  
+	int& ref = test1();
+ 
+	cout << ref << endl;
+	test1() = 1000;
+	cout << ref << endl;
+	//结果:10
+	       1000
+```
+
