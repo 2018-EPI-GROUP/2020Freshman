@@ -1,0 +1,110 @@
+一、最快最简单的排序-----桶排序
+每一个桶的作用其实就是标记每个数出现的次数
+例如：如果需要对数据范围再0~1000的整数进行排序，我们需要个桶，来表示
+0~1000之间每一个书出现的次数。
+代码如下：
+
+#include<stdio.h>
+int main()
+{
+  int book[1001],i,j,t,n;
+  for(i=0;i<=1000;i++)
+  book[i]=0;
+  scanf("%d",&n)
+  for(i=1;i<=n;i++）
+  {
+  scanf("%d",&t0
+  book[t]++；
+  }
+  for(i=1000;i>=0;i--)//依次判断编号1000~0的桶
+  for(j=1;j<=book[i];j++)//出现了几次就将桶的编号打印几次
+  printf("%d",i);
+  getchar();getchar();/*getchar()的作用是暂停程序，方便查看程序输出的内容*/
+  return 0;
+  }
+
+二、冒泡排序
+基本思想是：每次比较两个相邻的元素，如果它们的顺序错误就把它们交换过来。
+如果有n个数，则要进行n-1躺比较。在第一躺比较中要进行n-1次两两比较，在第j躺比较中要进行n-j次比较。
+代码示例如下：
+
+#include<stdio.h>
+main()
+{
+int i,j,t,a[10];
+printf(“input 10 numbers:\n”);
+for(i=0;i<10;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("\n"); /前面这些实现数据输入到数组中/
+for(i=0;i<9;i++)
+{
+for(j=0;j<9-i;j++)
+{
+if(a[i]>a[i+1])
+{
+t=a[i];
+a[i]=a[i+1];
+a[i+1]=t;
+}
+}
+printf(“the sorted numbers:\n”);
+for(i=0;i<10;i++)
+{
+printf("%d",a[i]);
+}
+printf("\n");
+}
+}
+
+冒泡排序的核心就是双重嵌套循环
+三、快速排序
+快速排序算法利用的是一趟快速排序,基本内容是选择一个数作为准基数,然后利用这个准基数将遗传数据分为两个部分,第一部分比这个准基数小,都放在准基数的左边,第二部分都比这个准基数大,放在准基数的右边.
+
+#include<stdio.h>
+int a[101],n;
+void quicksort(int left,int right)
+{
+int i,j,t,temp;
+if(left>right)
+return;
+temp=a[left];//temp中存的就是基准数
+i=left;
+j=right;
+while(i!=j)
+{
+//顺序很重要，要先从右往左找
+while(a[j]>=temp&&i<j)
+ j--;
+ //再从左往右找
+ while(a[j]>=temp&&i<j)
+ i++;
+ //交换两个数在数组中的位置
+ if（i<j)//当哨兵i和哨兵j没又相遇时
+ {
+    t=a[i];
+    a[i]=a[j];
+    a[j]=t;
+    }
+    }
+    //最终将基数归位
+    a[left]=a[i];
+    a[i]=temp;
+    quicksort(left,i-1);//继续处理左边的，这里是一个递归的过程
+    quicksort(i+1,right);//继续处理右边的，这里是一个递归过程 
+    return;
+    }
+    int main()
+    {
+    int i,j;
+    scanf("%d',&n);
+    for(i=1;i<=n;i++)
+    scanf("%d",&a[i]);
+    quicksort(1,n)//快速排序调用
+    /输出排序后的结果
+    for(i=1;i<=n;i++)
+    printf("%d",a[i]);
+    return 0;
+    }
+————————————————
